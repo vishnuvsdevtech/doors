@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doors — navigation as a doorway</title>
+<meta name="description" content="Sections you pull open. Perspective, hinge and darkness behind — anticipation as navigation.">
+<meta name="theme-color" content="#08090b">
+<link rel="canonical" href="https://vishnuvsdevtech.github.io/doors/">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+.corridor{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:26px;perspective:1400px}
+@media (max-width:760px){.corridor{grid-template-columns:1fr}}
+.portal{position:relative;height:300px;perspective:1200px}
+.frame{position:absolute;inset:0;border-radius:8px 8px 0 0;overflow:hidden;background:#05070a;
+ box-shadow:inset 0 0 60px rgba(0,0,0,.9)}
+.room{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;
+ background:radial-gradient(120% 90% at 50% 0%,#191d26,#07090c 70%);opacity:0;transition:opacity .5s .35s}
+.portal.open .room{opacity:1}
+.room h3{margin:0 0 4px;font-size:15px}
+.room p{margin:0;font-size:11.5px;color:var(--ink2)}
+.panel{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;
+ transition:transform .85s cubic-bezier(.2,.9,.2,1);border-radius:8px 8px 0 0;
+ background:linear-gradient(105deg,#1c2028 0%,#141821 42%,#0f1219 100%);
+ border:1px solid var(--line2);box-shadow:0 20px 40px rgba(0,0,0,.5)}
+.portal.open .panel{transform:rotateY(-104deg)}
+.panel::after{content:"";position:absolute;right:14px;top:50%;width:10px;height:10px;border-radius:50%;
+ background:var(--acc);box-shadow:0 0 12px var(--acc);transform:translateY(-50%)}
+.panel b{position:absolute;left:18px;bottom:16px;font:600 10px var(--mono);letter-spacing:.16em;
+ text-transform:uppercase;color:var(--muted)}
+.panel strong{position:absolute;left:18px;top:16px;font:600 13px var(--sans);color:var(--ink)}
+.portal.open .panel b{color:var(--acc)}
+.hint{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 0 6px}
+</style></head>
+<body><div class="wrap">
+<header><h1>Navigation is a <em>doorway</em></h1><span class="tag">hinge · perspective · a room behind</span></header>
+<div class="corridor" id="corridor">
+  <div class="portal"><div class="frame"><div class="room"><h3>Systems</h3><p>Twelve things that see, search and act.</p></div></div>
+    <div class="panel"><strong>Systems</strong><b>Pull to open</b></div></div>
+  <div class="portal"><div class="frame"><div class="room"><h3>Writing</h3><p>Notes on edge vision and honest benchmarks.</p></div></div>
+    <div class="panel"><strong>Writing</strong><b>Pull to open</b></div></div>
+  <div class="portal"><div class="frame"><div class="room"><h3>Contact</h3><p>Open to conversations, not forms.</p></div></div>
+    <div class="panel"><strong>Contact</strong><b>Pull to open</b></div></div>
+</div>
+<div class="hint">click a door — only one is open at a time</div>
+<div class="meter"><span>open <b id="m-open">none</b></span><span>doors <b>3</b></span></div>
+<div class="notes"><p>A door is anticipation with a handle. The content is hidden until the door swings, so the click has a consequence you can feel — and the room behind it is already lit, which implies the site was always this shape.</p></div>
+<footer><span>Doors · POC</span><span>rotateY(−104°) on a left hinge</span></footer>
+</div>
+<script src="assets/app.js"></script></body></html>
